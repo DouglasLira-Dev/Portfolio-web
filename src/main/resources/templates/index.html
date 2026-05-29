@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -626,83 +626,52 @@
     <h2 class="section-title fade-up">O que já construí</h2>
     <div class="projects-grid">
 
-      <div class="project-card fade-up">
-        <div class="project-icon">🗄️</div>
-        <div class="project-name">CRUD de Usuários com SQLite</div>
-        <p class="project-desc">
-          Sistema completo de gerenciamento de usuários com operações CRUD usando Java puro e SQLite
-          como banco de dados local. Interface via terminal.
-        </p>
+      <div class="project-card fade-up" th:each="project : ${projects}">
+        <div class="project-icon" th:text="${project.icon}"></div>
+        <div class="project-name" th:text="${project.name}"></div>
+        <p class="project-desc" th:text="${project.description}"></p>
         <div class="project-tags">
-          <span class="project-tag">Java</span>
-          <span class="project-tag">SQLite</span>
-          <span class="project-tag">JDBC</span>
+          <span class="project-tag" th:each="tag : ${project.tags}" th:text="${tag}">Tag</span>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/DouglasLira-Dev/java-sqlite-crud-usuarios" target="_blank" class="project-link">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            Código
-          </a>
-        </div>
-      </div>
 
-      <div class="project-card fade-up">
-        <div class="project-icon">📊</div>
-        <div class="project-name">Comparador de Planilhas</div>
-        <p class="project-desc">
-          Ferramenta Java para comparar dados de planilhas de estágio, identificando diferenças,
-          inconsistências e gerando relatórios de análise.
-        </p>
         <div class="project-tags">
-          <span class="project-tag">Java</span>
-          <span class="project-tag">Apache POI</span>
-          <span class="project-tag">Planilhas</span>
+            <span class="project-tag"
+                    th:each="tag : ${project.tags}"
+                    th:text="${tag}">
+            </span>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/DouglasLira-Dev/comparador-planilha-estagio" target="_blank" class="project-link">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            Código
-          </a>
-        </div>
-      </div>
 
-      <div class="project-card fade-up">
-        <div class="project-icon">💰</div>
-        <div class="project-name">Controle Financeiro</div>
-        <p class="project-desc">
-          Sistema de controle financeiro pessoal com cadastro de receitas e despesas,
-          categorização e visualização de saldo. Desenvolvido em Java.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Java</span>
-          <span class="project-tag">OOP</span>
-          <span class="project-tag">Collections</span>
-        </div>
         <div class="project-links">
-          <a href="https://github.com/DouglasLira-Dev/controle-financeiro" target="_blank" class="project-link">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            Código
-          </a>
+            <a class="project-link" th:href="${project.githubUrl}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
         </div>
-      </div>
+        </div>
 
-      <!-- CARD "EM BREVE" para o portfólio -->
-      <div class="project-card fade-up" style="border-style: dashed; border-color: rgba(110,231,183,0.2);">
+      <!-- Card especial fixo — "Em construção" do próprio portfólio -->
+  <div class="project-card fade-up" style="border-style: dashed; border-color: rgba(110,231,183,0.2);">
         <div class="project-icon" style="border-color: rgba(110,231,183,0.2);">🌐</div>
         <div class="project-name" style="color: var(--text2);">Portfólio Web — Spring Boot</div>
         <p class="project-desc">
-          Este site! Uma aplicação fullstack com Spring Boot no back-end, Thymeleaf
-          para renderização e API REST para listar projetos dinamicamente.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Spring Boot</span>
-          <span class="project-tag">Thymeleaf</span>
-          <span class="project-tag">REST API</span>
-        </div>
+            Este site! Uma aplicação fullstack com Spring Boot no back-end, Thymeleaf
+            para renderização e API REST para listar projetos dinamicamente.
+         </p>
+
+    <div class="project-tags">
+        <span class="project-tag">Spring Boot</span>
+        <span class="project-tag">Thymeleaf</span>
+        <span class="project-tag">REST API</span>
+     </div>
         <div class="project-links">
-          <span class="project-link" style="color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.75rem;">Em construção...</span>
+            <span class="project-link" style="color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.75rem;">Em construção...</span>
         </div>
-      </div>
+     </div>
+
+    </div>
+
 
     </div>
   </section>
